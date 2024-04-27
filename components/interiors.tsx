@@ -10,8 +10,8 @@ const slideWidth = 100
 export function Interiors() {
    const ref = useRef<HTMLDivElement>(null)
    return (
-      <div className="relative">
-         <div className="h-[calc(100vh-80px)] w-[300vw] flex overflow-hidden" ref={ref}>
+      <div className="relative overflow-hidden">
+         <div className="h-[calc(100vh-80px)] w-[300vw] flex " ref={ref}>
             {Array.from({ length: 3 }).map((_, i) => (
                <div className="h-full w-screen relative" key={i}>
                   <Image src={`/img${i + 1}.webp`} alt={`img${i + 1}`} fill priority sizes="(max-width: 900px) 100vw" />

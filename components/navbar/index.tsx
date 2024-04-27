@@ -9,7 +9,7 @@ export default function Navbar() {
 
    return (
       <>
-         <nav className="fixed z-10 top-0 h-20 w-screen flex items-center justify-between px-5">
+         <nav className="fixed z-10 top-0 h-20 w-full flex items-center justify-between px-5">
             <Logo fill={`${isDark ? '#fff' : '#080f0f'}`} className="size-14 transition-[fill] duration-700 ease-in" />
 
             <section className="flex gap-x-5">
