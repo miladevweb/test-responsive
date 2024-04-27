@@ -6,7 +6,7 @@ export function HeroSection() {
             <h2>IN WITH THE BOLD</h2>
          </div>
 
-         <div className="bg-secondary text-primary rounded-full size-[10vw] grid place-items-center text-[3vw] leading-[80%] text-center fixed z-10 right-11 bottom-10">
+         <div className="bg-secondary text-primary rounded-full size-[10vw] grid place-items-center text-[3vw] leading-[80%] text-center fixed z-10 right-11 bottom-10" id="fixed-circle">
             <div>
                <p>WORK</p>
                <p>WITH US?</p>

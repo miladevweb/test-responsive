@@ -10,6 +10,16 @@
    body {
       @apply text-black dark:text-white transition-[color] duration-700 ease-in overflow-x-hidden;
    }
+   html::-webkit-scrollbar {
+      width: 10px;
+   }
+   html::-webkit-scrollbar-thumb {
+      background-color: #000000;
+      border-radius: 10px;
+   }
+   html::-webkit-scrollbar-track {
+      background-color: #365353;
+   }
 }
 
 @layer utilities {
@@ -19,11 +29,11 @@
    }
    html nav {
       margin-top: -10px;
-      animation: scrollbar-light forwards;
-      animation-timeline: scroll();
-      animation-range: 0px 500px;
+      animation: show-light-navbar forwards, hide-light-navbar forwards;
+      animation-timeline: scroll(), scroll();
+      animation-range: 0px 500px, 75% 89%;
    }
-   @keyframes scrollbar-light {
+   @keyframes show-light-navbar {
       to {
          margin-top: 0px;
          backdrop-filter: blur(3px);
@@ -31,17 +41,41 @@
          box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.175);
       }
    }
+   @keyframes hide-light-navbar {
+      to {
+         opacity: 0;
+         pointer-events: none;
+      }
+   }
 
    html.dark nav {
       margin-top: -10px;
-      animation: scrollbar-dark forwards;
-      animation-timeline: scroll();
-      animation-range: 0px 500px;
+      animation: show-dark-navbar forwards, hide-dark-navbar forwards;
+      animation-timeline: scroll(), scroll();
+      animation-range: 0px 500px, 75% 89%;
    }
-   @keyframes scrollbar-dark {
+   @keyframes show-dark-navbar {
       to {
          margin-top: 0px;
          background-color: black;
+      }
+   }
+   @keyframes hide-dark-navbar {
+      to {
+         opacity: 0;
+         pointer-events: none;
+      }
+   }
+
+   #fixed-circle {
+      animation: hide-circle forwards;
+      animation-timeline: scroll();
+      animation-range: 75% 89%;
+   }
+   @keyframes hide-circle {
+      to {
+         opacity: 0;
+         pointer-events: none;
       }
    }
 }

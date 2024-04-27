@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 import dynamic from 'next/dynamic'
+import { Footer } from '@/components/footer'
 const DynamicNavbar = dynamic(() => import('@/components/navbar'), { ssr: false })
 
 export const metadata: Metadata = {
@@ -20,6 +21,7 @@ export default function RootLayout({
          <body className={inter.className}>
             <DynamicNavbar />
             <main className="mt-20">{children}</main>
+            <Footer />
          </body>
       </html>
    )
