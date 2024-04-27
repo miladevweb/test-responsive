@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+   @font-face {
+      font-family: 'National';
+      src: url(/fonts/National2Compressed-Extrabold.woff2) format('woff2');
+   }
+   body {
+      @apply text-black dark:text-white transition-[color] duration-700 ease-in overflow-x-hidden;
+   }
+}
+
+@layer utilities {
+   #background {
+      @apply bg-primary h-screen w-full fixed inset-0 -z-10;
+      transition: clip-path 400ms ease-in;
+   }
+   html nav {
+      margin-top: -10px;
+      animation: scrollbar-light forwards;
+      animation-timeline: scroll();
+      animation-range: 0px 500px;
+   }
+   @keyframes scrollbar-light {
+      to {
+         margin-top: 0px;
+         backdrop-filter: blur(3px);
+         background-color: rgba(217, 217, 217, 0.061);
+         box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.175);
+      }
+   }
+
+   html.dark nav {
+      margin-top: -10px;
+      animation: scrollbar-dark forwards;
+      animation-timeline: scroll();
+      animation-range: 0px 500px;
+   }
+   @keyframes scrollbar-dark {
+      to {
+         margin-top: 0px;
+         background-color: black;
+      }
+   }
+}
