@@ -1,7 +1,7 @@
 export function HeroSection() {
    return (
       <section className="w-full h-[calc(100vh-80px)] font-national flex items-end justify-between px-[2vw]" data-hero="section">
-         <div className="text-[11vw] leading-[80%] mb-20">
+         <div className="text-[11vw] leading-[80%] mb-20" data-hero="h2-container">
             <h2>
                OUT WITH <br data-hidden /> THE OLD
             </h2>

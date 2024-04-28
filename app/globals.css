@@ -91,11 +91,11 @@
    @media (max-width: 500px) {
       [data-hero='section'] {
          @apply items-center justify-center text-center;
-         div > h2 {
-            @apply text-[18vw] leading-[85%];
-            span {
-               @apply text-[43vw] block mt-10;
-            }
+      }
+      [data-hero='h2-container'] h2 {
+         @apply text-[18vw] leading-[85%];
+         span {
+            @apply text-[43vw] block mt-10;
          }
       }
       #fixed-circle {
