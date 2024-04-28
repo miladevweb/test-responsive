@@ -10,6 +10,10 @@
    body {
       @apply text-black dark:text-white transition-[color] duration-700 ease-in overflow-x-hidden;
    }
+   html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+   }
    html::-webkit-scrollbar {
       width: 10px;
    }
@@ -22,13 +26,12 @@
    }
 }
 
-@layer utilities {
+@layer components {
    #background {
       @apply bg-primary h-screen w-full fixed inset-0 -z-10;
       transition: clip-path 400ms ease-in;
    }
    html nav {
-      margin-top: -10px;
       animation: show-light-navbar forwards, hide-light-navbar forwards;
       animation-timeline: scroll(), scroll();
       animation-range: 0px 500px, 75% 89%;
@@ -49,7 +52,6 @@
    }
 
    html.dark nav {
-      margin-top: -10px;
       animation: show-dark-navbar forwards, hide-dark-navbar forwards;
       animation-timeline: scroll(), scroll();
       animation-range: 0px 500px, 75% 89%;
@@ -76,6 +78,76 @@
       to {
          opacity: 0;
          pointer-events: none;
+      }
+   }
+}
+
+@layer utilities {
+   @media (min-width: 500px) {
+      [data-hidden] {
+         display: none;
+      }
+   }
+   @media (max-width: 500px) {
+      [data-hero='section'] {
+         @apply items-center justify-center text-center;
+         div > h2 {
+            @apply text-[18vw] leading-[85%];
+            span {
+               @apply text-[43vw] block mt-10;
+            }
+         }
+      }
+      #fixed-circle {
+         @apply size-[25vw] text-[7vw];
+      }
+      [data-about='container'] {
+         @apply justify-center mt-2;
+      }
+      [data-about='h3-container'] {
+         @apply text-[13vw];
+         span {
+            @apply uppercase text-[21vw] block mt-2;
+         }
+      }
+      [data-about='para-container'] {
+         @apply text-sm px-[11vw];
+      }
+      [data-about='solo-p'] {
+         @apply text-sm;
+      }
+      [data-interiors='text-container'] h3 {
+         @apply text-[12vw] -ml-1 mb-2;
+      }
+      [data-interiors='text-container'] p {
+         @apply text-xs;
+      }
+      [data-footer='container'] {
+         @apply content-start mt-5 justify-items-center px-3;
+         section {
+            @apply flex-col justify-start;
+            div {
+               @apply grid-cols-[repeat(2,_max-content)] gap-x-0 justify-between;
+            }
+         }
+      }
+      [data-navbar='container'] {
+         @apply h-14 mt-0;
+      }
+      [data-switch='container'] {
+         @apply gap-x-2;
+      }
+      [data-switch='container'] > button {
+         @apply h-6 scale-x-[80%];
+         div {
+            @apply size-4;
+         }
+      }
+      [data-switch='container'] > div {
+         @apply py-[5px];
+         div {
+            @apply w-7;
+         }
       }
    }
 }

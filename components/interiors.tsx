@@ -19,10 +19,10 @@ export function Interiors() {
             ))}
          </div>
 
-         <div className='absolute top-10 left-10 mix-blend-difference'>
-            <h3 className='text-2xl font-medium'>Selfhood</h3>
-            <p className='text-sm'>
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br /> Lorem, ipsum.
+         <div className="absolute top-10 left-10 mix-blend-difference" data-interiors="text-container">
+            <h3 className="text-2xl font-medium">Selfhood</h3>
+            <p className="text-sm">
+               Lorem, ipsum dolor sit amet <br data-hidden /> consectetur adipisicing elit. <br /> Lorem, ipsum.
             </p>
          </div>
 

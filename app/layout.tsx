@@ -20,7 +20,9 @@ export default function RootLayout({
       <html lang="en">
          <body className={inter.className}>
             <DynamicNavbar />
-            <main className="mt-20">{children}</main>
+            <main className="mt-20" id="main">
+               {children}
+            </main>
             <Footer />
          </body>
       </html>
