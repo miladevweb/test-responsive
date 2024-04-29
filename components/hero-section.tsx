@@ -1,6 +1,6 @@
 'use client'
 import { gsap } from 'gsap'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { useGSAP } from '@gsap/react'
 import { useInView } from 'react-intersection-observer'
 
@@ -8,6 +8,10 @@ gsap.registerPlugin(useGSAP)
 export function HeroSection() {
    const { ref, inView } = useInView()
    const h2Container = useRef<HTMLDivElement>(null)
+
+   useEffect(() => {
+      window.scrollTo(0, 0)
+   }, [])
 
    useGSAP(() => {
       if (inView) {
