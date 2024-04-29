@@ -1,14 +1,29 @@
 'use client'
 import { gsap } from 'gsap'
+import { useGSAP } from '@gsap/react'
 import Image from 'next/image'
 import { useRef } from 'react'
+import { useInView } from 'react-intersection-observer'
 
 let currentIndex = 0
 const slideCount = 4
 const slideWidth = 100
 
+gsap.registerPlugin(useGSAP)
 export function Interiors() {
    const ref = useRef<HTMLDivElement>(null)
+   const { ref: inViewRef, inView } = useInView()
+
+   useGSAP(() => {
+      if (inView) {
+         gsap.from('[data-interiors="text-container"]', {
+            opacity: 0,
+            duration: 1,
+            delay: 0.5,
+            x: -50,
+         })
+      }
+   }, [inView])
    return (
       <div className="relative overflow-hidden bg-primary text-white">
          <div className="h-screen w-[400vw] flex" ref={ref}>
@@ -19,7 +34,7 @@ export function Interiors() {
             ))}
          </div>
 
-         <div className="absolute top-10 left-10 mix-blend-difference" data-interiors="text-container">
+         <div className="absolute top-10 left-10 mix-blend-difference" data-interiors="text-container" ref={inViewRef}>
             <h3 className="text-2xl font-medium">Selfhood</h3>
             <p className="text-sm">
                Lorem, ipsum dolor sit amet <br data-hidden /> consectetur adipisicing elit. <br /> Lorem, ipsum.

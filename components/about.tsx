@@ -1,6 +1,5 @@
 'use client'
 import { gsap } from 'gsap'
-import { useRef } from 'react'
 import { useGSAP } from '@gsap/react'
 import { useInView } from 'react-intersection-observer'
 
@@ -11,13 +10,18 @@ export function About() {
       rootMargin: '0px 0px -50px 0px',
    })
    useGSAP(() => {
+      gsap.set("[data-about='container'] > div", { opacity: 0, x: -25 })
+         gsap.set("[data-about='container'] > p", { opacity: 0, x: -25 })
+
       if (inView) {
-         gsap.from('[data-about="h3-container"] h3', {
-            opacity: 0,
-            y: 50,
-            stagger: 0.3,
+        
+         const targets = gsap.utils.toArray("[data-about='container'] > div, [data-about='container'] > p")
+         gsap.to(targets, {
+            x: 0,
+            opacity: 1,
             duration: 1,
-            ease: 'power1.inOut',
+            stagger: 0.5,
+            ease: 'power2.inOut',
          })
       }
    }, [inView])

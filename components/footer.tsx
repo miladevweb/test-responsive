@@ -1,9 +1,25 @@
+'use client'
 import Link from 'next/link'
 import { Logo } from './svg'
+import { gsap } from 'gsap'
+import { useGSAP } from '@gsap/react'
+import { useInView } from 'react-intersection-observer'
 
+gsap.registerPlugin(useGSAP)
 export function Footer() {
+   const { ref, inView } = useInView()
+   useGSAP(() => {
+      if (inView) {
+         gsap.from('footer', {
+            opacity: 0,
+            y: -50,
+            duration: 1,
+            delay: 0.5,
+         })
+      }
+   }, [inView])
    return (
-      <footer className="h-44 w-full px-36 grid grid-cols-1 content-center" data-footer="container">
+      <footer className="h-44 w-full px-36 grid grid-cols-1 content-center" data-footer="container" ref={ref}>
          <Link href={'#main'}>
             <Logo className="dark:fill-white fill-[#080f0f] size-20 transition-[fill] duration-700 ease-in" />
          </Link>
