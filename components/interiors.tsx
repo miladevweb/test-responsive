@@ -19,7 +19,6 @@ export function Interiors() {
          gsap.from('[data-interiors="text-container"]', {
             opacity: 0,
             duration: 1,
-            delay: 0.5,
             x: -50,
          })
       }
