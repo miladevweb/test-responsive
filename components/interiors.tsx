@@ -37,7 +37,7 @@ export function Interiors() {
                      },
                      {
                         opacity: 1,
-                        duration: 1,
+                        duration: window.innerWidth > 600 ? 1 : 0.3,
                         x: `-${(slideCount - 1) * slideWidth}vw`,
                      },
                   )
@@ -50,7 +50,7 @@ export function Interiors() {
                      },
                      {
                         opacity: 1,
-                        duration: 1,
+                        duration: window.innerWidth > 600 ? 1 : 0.3,
                         x: `-${(currentIndex - 1) * slideWidth}vw`,
                      },
                   )
@@ -73,7 +73,7 @@ export function Interiors() {
                      {
                         x: 0,
                         opacity: 1,
-                        duration: 1,
+                        duration: window.innerWidth > 600 ? 1 : 0.3,
                      },
                   )
                   currentIndex = 0
@@ -85,7 +85,7 @@ export function Interiors() {
                      },
                      {
                         opacity: 1,
-                        duration: 1,
+                        duration: window.innerWidth > 600 ? 1 : 0.3,
                         x: `-${currentIndex * slideWidth}vw`,
                      },
                   )

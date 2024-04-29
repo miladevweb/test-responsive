@@ -18,11 +18,11 @@
       width: 10px;
    }
    html::-webkit-scrollbar-thumb {
-      background-color: #000000;
       border-radius: 10px;
+      background-color: #000000;
    }
    html::-webkit-scrollbar-track {
-      background-color: #365353;
+      background-color: transparent;
    }
 }
 
@@ -39,8 +39,8 @@
    @keyframes show-light-navbar {
       to {
          margin-top: 0px;
-         backdrop-filter: blur(3px);
-         background-color: rgba(217, 217, 217, 0.061);
+         backdrop-filter: blur(5px);
+         background-color: rgba(255, 255, 255, 0.061);
          box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.175);
       }
    }
@@ -80,21 +80,24 @@
          pointer-events: none;
       }
    }
+   .letter {
+      @apply inline-block;
+   }
 }
 
 @layer utilities {
-   @media (min-width: 500px) {
+   @media (min-width: 600px) {
       [data-hidden] {
          display: none;
       }
    }
-   @media (max-width: 500px) {
+   @media (max-width: 600px) {
       [data-hero='section'] {
          @apply items-center justify-center text-center;
       }
       [data-hero='h2-container'] h2 {
          @apply text-[18vw] leading-[85%];
-         span {
+         [data-hero='upper'] {
             @apply text-[43vw] block mt-10;
          }
       }
@@ -132,7 +135,7 @@
          }
       }
       [data-navbar='container'] {
-         @apply h-14 mt-0;
+         @apply h-14 mt-0 px-5;
       }
       [data-switch='container'] {
          @apply gap-x-2;
