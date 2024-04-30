@@ -7,12 +7,13 @@ import { useInView } from 'react-intersection-observer'
 
 gsap.registerPlugin(useGSAP)
 export function Footer() {
-   const { ref, inView } = useInView()
+   const { ref, inView } = useInView({ rootMargin: '-50px' })
    useGSAP(() => {
+      gsap.set('footer', { opacity: 0, y: -50 })
       if (inView) {
-         gsap.from('footer', {
-            opacity: 0,
-            y: -50,
+         gsap.to('footer', {
+            opacity: 1,
+            y: 0,
             duration: 1,
             delay: 0.5,
          })
