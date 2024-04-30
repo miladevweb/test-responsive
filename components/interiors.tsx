@@ -12,14 +12,16 @@ const slideWidth = 100
 gsap.registerPlugin(useGSAP)
 export function Interiors() {
    const ref = useRef<HTMLDivElement>(null)
-   const { ref: inViewRef, inView } = useInView()
+   const { ref: inViewRef, inView } = useInView({root: null, rootMargin: '-50px'})
 
    useGSAP(() => {
+      gsap.set('[data-interiors="text-container"]', { opacity: 0, x: -50 })
       if (inView) {
-         gsap.from('[data-interiors="text-container"]', {
-            opacity: 0,
+         gsap.to('[data-interiors="text-container"]', {
+            x: 0,
+            opacity: 1,
             duration: 1,
-            x: -50,
+            delay: 0.5,
          })
       }
    }, [inView])
@@ -34,8 +36,8 @@ export function Interiors() {
          </div>
 
          <div className="absolute top-10 left-10 mix-blend-difference" data-interiors="text-container" ref={inViewRef}>
-            <h3 className="text-2xl font-medium">Selfhood</h3>
-            <p className="text-sm">
+            <h3 className="text-6xl font-medium">Selfhood</h3>
+            <p className="opacity-90">
                Lorem, ipsum dolor sit amet <br data-hidden /> consectetur adipisicing elit. <br /> Lorem, ipsum.
             </p>
          </div>

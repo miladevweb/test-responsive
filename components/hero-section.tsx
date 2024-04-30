@@ -6,7 +6,7 @@ import { useInView } from 'react-intersection-observer'
 
 gsap.registerPlugin(useGSAP)
 export function HeroSection() {
-   const { ref, inView } = useInView()
+   const { ref, inView } = useInView({ root: null, rootMargin: '-100px' })
    const h2Container = useRef<HTMLDivElement>(null)
 
    useEffect(() => {
@@ -20,14 +20,14 @@ export function HeroSection() {
                el.innerHTML = el.textContent!.replace(/\S/g, "<span class='letter'>$&</span>")
             })
             const letters = gsap.utils.toArray('.letter')
-            gsap.from(letters, { y: -100, opacity: 0, ease: 'power1.inOut', stagger: 0.1 })
+            gsap.from(letters, { y: -100, opacity: 0, ease: 'power1.inOut', stagger: 0.1, delay: 0.8 })
          } else {
             gsap.from('#h2-container h2', {
                opacity: 0,
                y: 50,
                duration: 0.8,
                stagger: 0.6,
-               delay: 0.2,
+               delay: 0.8,
             })
          }
       }

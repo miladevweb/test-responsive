@@ -5,16 +5,12 @@ import { useInView } from 'react-intersection-observer'
 
 gsap.registerPlugin(useGSAP)
 export function About() {
-   const { ref, inView } = useInView({
-      root: null,
-      rootMargin: '0px 0px -50px 0px',
-   })
+   const { ref, inView } = useInView({ root: null, rootMargin: '-100px' })
    useGSAP(() => {
       gsap.set("[data-about='container'] > div", { opacity: 0, x: -25 })
-         gsap.set("[data-about='container'] > p", { opacity: 0, x: -25 })
+      gsap.set("[data-about='container'] > p", { opacity: 0, x: -25 })
 
       if (inView) {
-        
          const targets = gsap.utils.toArray("[data-about='container'] > div, [data-about='container'] > p")
          gsap.to(targets, {
             x: 0,
@@ -22,6 +18,7 @@ export function About() {
             duration: 1,
             stagger: 0.5,
             ease: 'power2.inOut',
+            delay: 0.8,
          })
       }
    }, [inView])
